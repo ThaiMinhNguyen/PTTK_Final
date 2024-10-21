@@ -1,9 +1,3 @@
-<%-- 
-    Document   : login
-    Created on : Oct 21, 2024, 10:00:16?PM
-    Author     : Admin
---%>
-
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
@@ -13,8 +7,8 @@
 </head>
 <body>
  <div align="center">
-  <h1>User Login Form</h1>
-  <form action="login" method="post">
+  <h1>User Register Form</h1>
+  <form action="addAccount" method="post">
    <table style="with: 100%">
     <tr>
      <td>UserName</td>
@@ -25,9 +19,8 @@
      <td><input type="password" name="password" /></td>
     </tr>
    </table>
-   <input type="submit" value="LOGIN" />
+   <input type="submit" value="Register" />
   </form>
-  <a href = "${pageContext.request.contextPath}/thanhvien/gdDangky.jsp">REGISTER</a>
  </div>
 </body>
 </html>
