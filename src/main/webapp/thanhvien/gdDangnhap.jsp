@@ -98,10 +98,10 @@
             if (password.equals("1")) {
                 if (username.equals("kh")) {
                     // Chuyển hướng đến trang dành cho sinh viên
-                    response.sendRedirect("sv/gdChinhKH.jsp");
+                    response.sendRedirect("../khachhang/gdChinhKH090.jsp");
                 } else if (username.equals("nv")) {
                     // Chuyển hướng đến trang dành cho nhân viên
-                    response.sendRedirect("gv/gdChinhNV.jsp");
+                    response.sendRedirect("gv/gdChinhNV090.jsp");
                 } else {
                     // Nếu không khớp với bất kỳ vai trò nào, báo lỗi
                     response.sendRedirect("gdDangnhap.jsp?err=fail");
