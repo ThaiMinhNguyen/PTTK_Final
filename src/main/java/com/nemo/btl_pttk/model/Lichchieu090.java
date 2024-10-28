@@ -4,21 +4,23 @@
  */
 package com.nemo.btl_pttk.model;
 
+import java.time.LocalDateTime;
+
 /**
  *
  * @author Admin
  */
 public class Lichchieu090 {
     private int id;
-    private int thoigian;
-    private String phongchieu;
+    private LocalDateTime giobatdau;
+    private LocalDateTime gioketthuc;
     private Phim090 phim;
     private Phong090 phong;
 
-    public Lichchieu090(int id, int thoigian, String phongchieu, Phim090 phim, Phong090 phong) {
+    public Lichchieu090(int id, LocalDateTime giobatdau, LocalDateTime gioketthuc, Phim090 phim, Phong090 phong) {
         this.id = id;
-        this.thoigian = thoigian;
-        this.phongchieu = phongchieu;
+        this.giobatdau = giobatdau;
+        this.gioketthuc = gioketthuc;
         this.phim = phim;
         this.phong = phong;
     }
@@ -31,20 +33,20 @@ public class Lichchieu090 {
         this.id = id;
     }
 
-    public int getThoigian() {
-        return thoigian;
+    public LocalDateTime getGiobatdau() {
+        return giobatdau;
     }
 
-    public void setThoigian(int thoigian) {
-        this.thoigian = thoigian;
+    public void setGiobatdau(LocalDateTime giobatdau) {
+        this.giobatdau = giobatdau;
     }
 
-    public String getPhongchieu() {
-        return phongchieu;
+    public LocalDateTime getGioketthuc() {
+        return gioketthuc;
     }
 
-    public void setPhongchieu(String phongchieu) {
-        this.phongchieu = phongchieu;
+    public void setGioketthuc(LocalDateTime gioketthuc) {
+        this.gioketthuc = gioketthuc;
     }
 
     public Phim090 getPhim() {
@@ -62,5 +64,8 @@ public class Lichchieu090 {
     public void setPhong(Phong090 phong) {
         this.phong = phong;
     }
+       
+    
+    
 }
 
