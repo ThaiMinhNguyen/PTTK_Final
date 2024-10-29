@@ -71,5 +71,8 @@ public class Phim090DAO extends DAO {
         }
         return kq;
     }
-
+    
+    public boolean luuPhim(Phim090 phim){
+        return true;
+    }
 }
