@@ -101,7 +101,7 @@
                     response.sendRedirect("../khachhang/gdChinhKH090.jsp");
                 } else if (username.equals("nv")) {
                     // Chuyển hướng đến trang dành cho nhân viên
-                    response.sendRedirect("gv/gdChinhNV090.jsp");
+                    response.sendRedirect("../nhanvien/gdChinhNV090.jsp");
                 } else {
                     // Nếu không khớp với bất kỳ vai trò nào, báo lỗi
                     response.sendRedirect("gdDangnhap.jsp?err=fail");
