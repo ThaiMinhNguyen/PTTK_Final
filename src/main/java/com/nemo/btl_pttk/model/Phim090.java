@@ -14,13 +14,23 @@ public class Phim090 {
     private String daodien;
     private int thoiLuong;
     private String mota;
-
+    private boolean dangchieu;
+    
     public Phim090(int id, String ten, String daodien, int thoiLuong, String mota) {
         this.id = id;
         this.ten = ten;
         this.daodien = daodien;
         this.thoiLuong = thoiLuong;
         this.mota = mota;
+    }
+    
+    public Phim090(int id, String ten, String daodien, int thoiLuong, String mota, boolean dangchieu) {
+        this.id = id;
+        this.ten = ten;
+        this.daodien = daodien;
+        this.thoiLuong = thoiLuong;
+        this.mota = mota;
+        this.dangchieu = dangchieu;
     }
 
     
@@ -63,5 +73,14 @@ public class Phim090 {
     public void setMota(String mota) {
         this.mota = mota;
     }
+
+    public boolean isDangchieu() {
+        return dangchieu;
+    }
+
+    public void setDangchieu(boolean dangchieu) {
+        this.dangchieu = dangchieu;
+    }
+    
 }
 
