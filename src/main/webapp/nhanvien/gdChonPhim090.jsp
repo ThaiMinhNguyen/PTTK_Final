@@ -36,6 +36,67 @@
         }
     </script>
 </head>
+<%
+    
+    
+    String phimIdParam = request.getParameter("phimId");
+    if (phimIdParam != null) {
+        try {
+            Phim090 phimChon = null;
+            int phimId = Integer.parseInt(phimIdParam);
+            Phim090DAO dao = new Phim090DAO();
+            List<Phim090> dsPhim = dao.getDSPhimdangchieu();
+            if (dsPhim != null) {
+                for (Phim090 phim : dsPhim) {
+                    if (phim.getId() == phimId) {
+                        phimChon = phim;
+                        break;
+                    }
+                }
+            }
+            if (phimChon != null) {
+                // Lưu thông tin phim đã chọn vào session
+                session.setAttribute("phimDaChon", phimChon);
+                System.out.println("Phim đã chọn: " + phimChon.getTen());
+
+                // Chuyển hướng đến trang xác nhận lịch chiếu
+                response.sendRedirect("gdXacnhanLichchieu090.jsp");
+                return; // Dừng thực hiện tiếp
+            } else {
+                System.out.println("Không tìm thấy phim với ID: " + phimId);
+            }
+        } catch (NumberFormatException e) {
+            System.out.println("ID phim không hợp lệ.");
+        }
+    }
+    
+    
+    String idStr = request.getParameter("id");
+    String ten = request.getParameter("ten");
+    String daodien = request.getParameter("daodien");
+    String thoiluongStr = request.getParameter("thoiluong");
+    String mota = request.getParameter("mota");
+
+    // Kiểm tra tất cả các tham số không null
+    if (idStr != null && ten != null && daodien != null && thoiluongStr != null && mota != null) {
+        try {
+            int id = Integer.parseInt(idStr);
+            int thoiluong = Integer.parseInt(thoiluongStr);
+            
+            // Tạo đối tượng Phim090
+            Phim090 phimMoi = new Phim090(id, ten, daodien, thoiluong, mota, true);
+            Phim090DAO phimDAO = new Phim090DAO();
+            phimDAO.luuPhim(phimMoi);
+            
+            System.out.println("Lưu phim thành công!");
+        } catch (NumberFormatException e) {
+            System.out.println("Đã xảy ra lỗi: ID và thời lượng phải là số.");
+        }
+    } else {
+        System.out.println("Tất cả các trường đều phải được điền đầy đủ.");
+    }
+%>
+
 <body>
     <div class="container">
         <h1>Chọn phim</h1>
@@ -50,7 +111,9 @@
                 <th>Thời lượng (phút)</th>
                 <th>Chọn phim</th>
             </tr>
-            <% List<Phim090> dsPhim = (List<Phim090>) session.getAttribute("dsPhim");
+            <% Phim090DAO dao = new Phim090DAO();
+               List<Phim090> dsPhim = dao.getDSPhimdangchieu();
+               session.setAttribute("dsPhimDangchieu", dsPhim);
                if (dsPhim != null) {
                    for (Phim090 phim : dsPhim) { %>
                        <tr>
@@ -59,7 +122,7 @@
                            <td><%= phim.getDaodien() %></td>
                            <td><%= phim.getThoiLuong() %></td>
                            <td>
-                               <form action="gdXacnhanLichchieu090.jsp" method="post">
+                               <form action="gdChonPhim090.jsp" method="post">
                                    <input type="hidden" name="phimId" value="<%= phim.getId() %>">
                                    <button type="submit" class="button add-button">Chọn</button>
                                </form>
@@ -77,7 +140,7 @@
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
             <h2>Thêm mới phim</h2>
-            <form action="gdThemPhim090.jsp" method="post">
+            <form action="gdChonPhim090.jsp" method="post">
                 <div class="form-group">
                     <label for="id">ID Phim:</label>
                     <input type="text" id="id" name="id" required>
