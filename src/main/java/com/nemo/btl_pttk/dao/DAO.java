@@ -19,11 +19,12 @@ public class DAO {
         String userName = "root";
         String password = "22012003";
         if (con == null) {
-            String dbUrl = "jdbc:mysql://localhost:3307/qldktc?autoReconnect = true & useSSL = false";
+            String dbUrl = "jdbc:mysql://localhost:3306/cineman?autoReconnect = true & useSSL = false";
             String dbClass = "com.mysql.jdbc.Driver";
             try {
                 Class.forName(dbClass);
                 con = DriverManager.getConnection(dbUrl, userName, password);
+                System.out.println("Kết nối thành công");
             } catch (Exception e) {
                 e.printStackTrace();
             }

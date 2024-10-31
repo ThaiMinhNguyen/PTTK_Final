@@ -5,27 +5,31 @@
 package com.nemo.btl_pttk.dao;
 
 import static com.nemo.btl_pttk.dao.DAO.con;
-import com.nemo.btl_pttk.model.Phim090;
 import com.nemo.btl_pttk.model.Phong090;
 import java.sql.CallableStatement;
 import java.sql.ResultSet;
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 /**
  *
  * @author Admin
  */
-public class Phong090DAO extends DAO{
+public class Phong090DAO extends DAO {
 
     public Phong090DAO() {
         super();
     }
-    
-    public ArrayList<Phong090> getPhongtrong(){
-         ArrayList<Phong090> kq = new ArrayList<>();
-        String sql = "{call Phongtrong()}";
+
+    public ArrayList<Phong090> getPhongtrong(LocalDateTime giobatdau, LocalDateTime gioketthuc) {
+        ArrayList<Phong090> kq = new ArrayList<>();
+        String sql = "{call Phongtrong(?, ?)}";
         try {
             CallableStatement cs = con.prepareCall(sql);
+            cs.setTimestamp(1, Timestamp.valueOf(giobatdau));
+            cs.setTimestamp(2, Timestamp.valueOf(gioketthuc));
+
             ResultSet rs = cs.executeQuery();
             while (rs.next()) {
                 int id = rs.getInt("id");
@@ -44,5 +48,5 @@ public class Phong090DAO extends DAO{
         }
         return kq;
     }
-    
+
 }
