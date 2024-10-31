@@ -24,6 +24,13 @@ public class Lichchieu090 {
         this.phim = phim;
         this.phong = phong;
     }
+    
+    public Lichchieu090(LocalDateTime giobatdau, LocalDateTime gioketthuc, Phim090 phim, Phong090 phong) {
+        this.giobatdau = giobatdau;
+        this.gioketthuc = gioketthuc;
+        this.phim = phim;
+        this.phong = phong;
+    }
 
     public int getId() {
         return id;
