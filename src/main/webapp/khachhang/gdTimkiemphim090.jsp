@@ -7,16 +7,16 @@
     List<Phim090> dsPhim = null;
     if (tuKhoa != null && !tuKhoa.isEmpty()) {
         
-        dsPhim = new ArrayList<Phim090>();
-        dsPhim.add(new Phim090(1, "Phim 1", "Đạo diễn 1", 120, "Mô tả phim 1"));
-        dsPhim.add(new Phim090(2, "Phim 2", "Đạo diễn 2", 90, "Mô tả phim 2"));
-        dsPhim.add(new Phim090(3, "Phim 3", "Đạo diễn 3", 150, "Mô tả phim 3"));
-        dsPhim.add(new Phim090(4, "Phim 4", "Đạo diễn 4", 110, "Mô tả phim 4"));
-        dsPhim.add(new Phim090(5, "Phim 5", "Đạo diễn 5", 135, "Mô tả phim 5"));
-        dsPhim.add(new Phim090(6, "Phim 6", "Đạo diễn 6", 105, "Mô tả phim 6"));
+        //dsPhim = new ArrayList<Phim090>();
+        //dsPhim.add(new Phim090(1, "Phim 1", "Đạo diễn 1", 120, "Mô tả phim 1"));
+        //dsPhim.add(new Phim090(2, "Phim 2", "Đạo diễn 2", 90, "Mô tả phim 2"));
+        //dsPhim.add(new Phim090(3, "Phim 3", "Đạo diễn 3", 150, "Mô tả phim 3"));
+        //dsPhim.add(new Phim090(4, "Phim 4", "Đạo diễn 4", 110, "Mô tả phim 4"));
+        //dsPhim.add(new Phim090(5, "Phim 5", "Đạo diễn 5", 135, "Mô tả phim 5"));
+        //dsPhim.add(new Phim090(6, "Phim 6", "Đạo diễn 6", 105, "Mô tả phim 6"));
         
-        //Phim090DAO dao = new Phim090DAO();
-        //dsPhim = dao.getPhimtheotukhoa(tuKhoa);
+        Phim090DAO dao = new Phim090DAO();
+        dsPhim = dao.getPhimtheotukhoa(tuKhoa);
         
         session.setAttribute("dsPhim", dsPhim);
     }
