@@ -4,6 +4,8 @@
  */
 package com.nemo.btl_pttk.model;
 
+import java.time.LocalDateTime;
+
 /**
  *
  * @author Admin
@@ -12,9 +14,9 @@ public class Thethanhvien090 {
     private int id;
     private String loai;
     private String mota;
-    private String ngaydangky;
+    private LocalDateTime ngaydangky;
 
-    public Thethanhvien090(int id, String loai, String mota, String ngaydangky) {
+    public Thethanhvien090(int id, String loai, String mota, LocalDateTime ngaydangky) {
         this.id = id;
         this.loai = loai;
         this.mota = mota;
@@ -46,11 +48,11 @@ public class Thethanhvien090 {
         this.mota = mota;
     }
 
-    public String getNgaydangky() {
+    public LocalDateTime getNgaydangky() {
         return ngaydangky;
     }
 
-    public void setNgaydangky(String ngaydangky) {
+    public void setNgaydangky(LocalDateTime ngaydangky) {
         this.ngaydangky = ngaydangky;
     }
 }
